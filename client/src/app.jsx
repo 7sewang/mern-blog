@@ -3,12 +3,15 @@ import Layout from "./Layout";
 import { IndexPage } from "./pages/IndexPage";
 import { Login } from "./pages/Login";
 import Register from "./pages/Register";
+import { UserContextProvider } from "./UserContext";
+
 
 
 export function App() {
   return (
     <>
       <BrowserRouter>
+      <UserContextProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<IndexPage />} />
@@ -20,6 +23,7 @@ export function App() {
           {/* <Route path="/edit/:id" element={<EditPost />} />  */}
           </Route>
         </Routes>
+        </UserContextProvider>
       </BrowserRouter>
     </>
   );
